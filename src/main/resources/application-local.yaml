@@ -1,0 +1,14 @@
+application:
+  instanceName: local
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36}: %msg%n"
+
+spring:
+  mvc:
+    servlet:
+      path: /api
+
+server:
+  max-http-header-size: 20000
