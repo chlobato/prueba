@@ -61,6 +61,27 @@
 		<finalName>prueba-tecnica</finalName>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<configuration>
+					<groupId>com.example</groupId>
+					<artifactId>tracer</artifactId>
+					<version>1.0.0</version>
+					<packaging>jar</packaging>
+					<file>${basedir}/lib/tracer-1.0.0.jar</file>
+					<generatePom>true</generatePom>
+				</configuration>
+				<executions>
+					<execution>
+						<id>install-jar-lib</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>validate</phase>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>2.6.6</version>
