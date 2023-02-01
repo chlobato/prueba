@@ -37,6 +37,13 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- dependencia generada por el plugin maven-install plugin de abajo-->
+		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>tracer</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
