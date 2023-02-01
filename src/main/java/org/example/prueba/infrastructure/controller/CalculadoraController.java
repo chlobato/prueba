@@ -1,6 +1,8 @@
 package org.example.prueba.infrastructure.controller;
 
 import io.corp.calculator.TracerImpl;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.example.prueba.domain.service.ICalculadoraService;
@@ -14,20 +16,23 @@ import org.springframework.web.bind.annotation.RestController;
 import java.math.BigDecimal;
 
 @RestController
-@RequestMapping("/calculator")
+@RequestMapping("/calculadora")
 @AllArgsConstructor
-@Tag(name = "calculadora API", description = "Api que realiza operaciones aritmeticas")
+@Tag(name = "Calculadora API", description = "Api que realiza operaciones aritmeticas")
 public class CalculadoraController {
 
     private final ICalculadoraService calculadoraService;
     private final TracerImpl tracerImpl = new TracerImpl();
 
-    @GetMapping(value = "/calcula")
+    @ApiResponses(
+            value = {@ApiResponse(responseCode = "200", description = "Devuelve el resultado"),
+                    @ApiResponse(responseCode = "500", description = "Si el operador no es valido")})
+    @GetMapping(value = "/calculo")
     public ResponseEntity<Double> calculo(@RequestParam(name = "primero") BigDecimal primerNumero,
                                           @RequestParam(name = "segundo") BigDecimal segundoNumero,
-                                          @RequestParam(name = "operacion") String operacion) {
+                                          @RequestParam(name = "operador") String operador) {
 
-        double result = this.calculadoraService.calculo(primerNumero, segundoNumero, operacion);
+        double result = this.calculadoraService.calculo(primerNumero, segundoNumero, operador);
         tracerImpl.trace(result);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
