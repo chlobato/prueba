@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: prueba-tecnica
+  profiles:
+    #active: "@spring.profiles.active@"
+    active: local
+  main:
+    allow-bean-definition-overriding: true

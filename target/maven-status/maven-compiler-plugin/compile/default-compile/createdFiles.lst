@@ -1,0 +1,6 @@
+org\example\prueba\domain\service\impl\CalculadoraServiceImpl.class
+org\example\prueba\domain\service\ICalculadoraService.class
+org\example\prueba\infrastructure\controller\CalculadoraController.class
+org\example\prueba\domain\service\impl\CalculadoraServiceImpl$1.class
+org\example\prueba\infrastructure\utils\Operador.class
+org\example\prueba\application\PruebaApplication.class
