@@ -22,7 +22,7 @@ Tiene funcionalidades basicas como restar, sumar. Y también esta preparado para
 3. Instalación limpia de Maven
 4. Ejecutar el JAR de la carpeta /target/prueba-tecnica.jar
 
-Abrir una consola y ejecutar:
+Para ello debe abrir una consola y ejecutar los siguientes comandos:
 
 ```
 git clone https://github.com/chlobato/prueba
@@ -57,6 +57,12 @@ Ejemplo
 El resultado será un valor numerico con decimales (15 - 10 = 5):
 
 Lo que se debe mostrar en pantalla sería este resultado -> `5.0`
+
+## Swagger
+
+A parte de la API REST tambien tenemos una interfaz llamada swagger que provee documentacion e infomación sobre la API en la siguiente url.
+
+`GET http://localhost:8080/api/swagger-ui/index.html#/Calculadora%20API/calculo
 
 ## Ejecutar tests
 
