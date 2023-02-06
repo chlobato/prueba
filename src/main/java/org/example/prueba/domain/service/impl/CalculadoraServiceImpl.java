@@ -23,7 +23,7 @@ public class CalculadoraServiceImpl implements ICalculadoraService {
      * @return El resultado dependiendo del tipo de operacion introducido
      */
     @Override
-    public double calculo(BigDecimal primerNumero, BigDecimal segundoNumero, String tipoOperacion) {
+    public BigDecimal calculo(BigDecimal primerNumero, BigDecimal segundoNumero, String tipoOperacion) {
 
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("Calculando resultado para : {} {} {}", primerNumero, segundoNumero, tipoOperacion);
@@ -34,9 +34,9 @@ public class CalculadoraServiceImpl implements ICalculadoraService {
         if (operador != null) {
             switch (operador) {
                 case SUMA:
-                    return primerNumero.add(segundoNumero).doubleValue();
+                    return primerNumero.add(segundoNumero);
                 case RESTA:
-                    return primerNumero.subtract(segundoNumero).doubleValue();
+                    return primerNumero.subtract(segundoNumero);
                 default:
                     if (LOGGER.isErrorEnabled()) {
                         LOGGER.error("No soporta el operador: {}", operador);

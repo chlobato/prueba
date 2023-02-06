@@ -62,7 +62,7 @@ Lo que se debe mostrar en pantalla sería este resultado -> `5.0`
 
 A parte de la API REST tambien tenemos una interfaz llamada swagger que provee documentacion e infomación sobre la API en la siguiente url.
 
-`GET http://localhost:8080/api/swagger-ui/index.html#/Calculadora%20API/calculo
+`GET http://localhost:8080/api/swagger-ui/index.html#/
 
 ## Ejecutar tests
 

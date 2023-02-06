@@ -21,14 +21,14 @@ class CalculadoraServiceITest {
 
     @Test
     void calculoSuma() {
-        Double result = calculadoraService.calculo(new BigDecimal(6),new BigDecimal(6),"suma");
-        Assertions.assertEquals(12.0,result);
+        BigDecimal result = calculadoraService.calculo(new BigDecimal(6),new BigDecimal(6),"suma");
+        Assertions.assertEquals(BigDecimal.valueOf(12),result);
     }
 
     @Test
     void calculoResta() {
-        Double result = calculadoraService.calculo(new BigDecimal(7),new BigDecimal(6),"resta");
-        Assertions.assertEquals(1.0,result);
+        BigDecimal result = calculadoraService.calculo(new BigDecimal(7),new BigDecimal(6),"resta");
+        Assertions.assertEquals(BigDecimal.valueOf(1),result);
     }
 
 }
