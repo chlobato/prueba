@@ -28,11 +28,11 @@ public class CalculadoraController {
             value = {@ApiResponse(responseCode = "200", description = "Devuelve el resultado"),
                     @ApiResponse(responseCode = "500", description = "Si el operador no es valido")})
     @GetMapping(value = "/calculo")
-    public ResponseEntity<Double> calculo(@RequestParam(name = "primero") BigDecimal primerNumero,
+    public ResponseEntity<BigDecimal> calculo(@RequestParam(name = "primero") BigDecimal primerNumero,
                                           @RequestParam(name = "segundo") BigDecimal segundoNumero,
                                           @RequestParam(name = "operador") String operador) {
 
-        double result = this.calculadoraService.calculo(primerNumero, segundoNumero, operador);
+        BigDecimal result = this.calculadoraService.calculo(primerNumero, segundoNumero, operador);
         tracerImpl.trace(result);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }

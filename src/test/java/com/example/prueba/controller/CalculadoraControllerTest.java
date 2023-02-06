@@ -26,12 +26,12 @@ class CalculadoraControllerTest {
 
     @BeforeEach
     void setup(){
-        Mockito.when(calculadoraService.calculo(Mockito.any(),Mockito.any(),Mockito.anyString())).thenReturn(12.0);
+        Mockito.when(calculadoraService.calculo(Mockito.any(),Mockito.any(),Mockito.anyString())).thenReturn(BigDecimal.valueOf(12));
     }
 
     @Test
     void calculo() {
-        ResponseEntity<Double> resultado = calculadoraController.calculo(new BigDecimal(6),new BigDecimal(6),"suma");
-        Assertions.assertEquals(new ResponseEntity<>(12.0, HttpStatus.OK),resultado);
+        ResponseEntity<BigDecimal> resultado = calculadoraController.calculo(new BigDecimal(6),new BigDecimal(6),"suma");
+        Assertions.assertEquals(new ResponseEntity<>(BigDecimal.valueOf(12), HttpStatus.OK),resultado);
     }
 }

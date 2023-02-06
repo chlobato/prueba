@@ -18,5 +18,5 @@ public interface ICalculadoraService {
      *
      */
 
-    double calculo(BigDecimal primerNumero, BigDecimal segundoNumero, String tipoOperacion);
+    BigDecimal calculo(BigDecimal primerNumero, BigDecimal segundoNumero, String tipoOperacion);
 }
