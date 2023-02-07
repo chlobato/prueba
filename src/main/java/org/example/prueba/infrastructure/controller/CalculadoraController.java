@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
+import org.example.prueba.application.config.TracerConfiguration;
 import org.example.prueba.domain.service.ICalculadoraService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ import java.math.BigDecimal;
 public class CalculadoraController {
 
     private final ICalculadoraService calculadoraService;
-    private final TracerImpl tracerImpl = new TracerImpl();
+    private final TracerConfiguration tracer;
 
     @ApiResponses(
             value = {@ApiResponse(responseCode = "200", description = "Devuelve el resultado"),
@@ -33,7 +34,7 @@ public class CalculadoraController {
                                           @RequestParam(name = "operador") String operador) {
 
         BigDecimal result = this.calculadoraService.calculo(primerNumero, segundoNumero, operador);
-        tracerImpl.trace(result);
+        tracer.getTracerImpl().trace(result);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }
