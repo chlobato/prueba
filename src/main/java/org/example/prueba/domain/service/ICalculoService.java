@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 /**
  * Interface that manage the operations for price
  */
-public interface ICalculadoraService {
+public interface ICalculoService {
 
     /**
      * Este método es usado para calcular dado unos numero y el operador.
@@ -13,10 +13,9 @@ public interface ICalculadoraService {
      *
      * @param primerNumero
      * @param segundoNumero
-     * @param tipoOperacion sumar, restar...
      * @return Resultado de la operación.
      *
      */
 
-    double calculo(BigDecimal primerNumero, BigDecimal segundoNumero, String tipoOperacion);
+    BigDecimal calculo(BigDecimal primerNumero, BigDecimal segundoNumero);
 }
