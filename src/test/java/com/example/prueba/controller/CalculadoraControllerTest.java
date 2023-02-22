@@ -1,7 +1,7 @@
 package com.example.prueba.controller;
 
 import org.example.prueba.infrastructure.controller.CalculadoraController;
-import org.example.prueba.domain.service.impl.MultipicadorServiceImpl;
+import org.example.prueba.domain.service.impl.DividirServiceImpl;
 import org.example.prueba.domain.service.impl.RestaServiceImpl;
 import org.example.prueba.domain.service.impl.SumaServiceImpl;
 import org.junit.jupiter.api.Assertions;
@@ -29,7 +29,7 @@ class CalculadoraControllerTest {
     private RestaServiceImpl resta;
 
     @Mock
-    private MultipicadorServiceImpl multipicador;
+    private DividirServiceImpl dividir;
 
     @Test
     void suma() {
@@ -46,9 +46,9 @@ class CalculadoraControllerTest {
     }
 
     @Test
-    void multiplicador() {
-        Mockito.when(multipicador.calculo(Mockito.any(),Mockito.any())).thenReturn(BigDecimal.valueOf(36));
-        ResponseEntity<BigDecimal> resultado = calculadoraController.multiplicar(new BigDecimal(6),new BigDecimal(6));
-        Assertions.assertEquals(new ResponseEntity<>(BigDecimal.valueOf(36), HttpStatus.OK),resultado);
+    void dividir() {
+        Mockito.when(dividir.calculo(Mockito.any(),Mockito.any())).thenReturn(BigDecimal.valueOf(4));
+        ResponseEntity<BigDecimal> resultado = calculadoraController.dividir(new BigDecimal(8),new BigDecimal(2));
+        Assertions.assertEquals(new ResponseEntity<>(BigDecimal.valueOf(4), HttpStatus.OK),resultado);
     }
 }

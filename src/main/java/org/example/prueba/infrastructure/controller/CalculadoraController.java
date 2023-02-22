@@ -5,7 +5,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.example.prueba.domain.service.impl.MultipicadorServiceImpl;
+import org.example.prueba.domain.service.impl.DividirServiceImpl;
 import org.example.prueba.domain.service.impl.RestaServiceImpl;
 import org.example.prueba.domain.service.impl.SumaServiceImpl;
 import org.springframework.http.HttpStatus;
@@ -25,7 +25,7 @@ public class CalculadoraController {
 
     private final SumaServiceImpl suma;
     private final RestaServiceImpl resta;
-    private final MultipicadorServiceImpl multipicador;
+    private final DividirServiceImpl dividir;
     private final TracerImpl tracerImpl = new TracerImpl();
 
     @ApiResponses(
@@ -55,11 +55,11 @@ public class CalculadoraController {
     @ApiResponses(
             value = {@ApiResponse(responseCode = "200", description = "Devuelve el resultado"),
                     @ApiResponse(responseCode = "500", description = "Si el operador no es valido")})
-    @GetMapping(value = "/multipicador")
-    public ResponseEntity<BigDecimal> multiplicar(@RequestParam(name = "primero") BigDecimal primerNumero,
+    @GetMapping(value = "/dividir")
+    public ResponseEntity<BigDecimal> dividir(@RequestParam(name = "primero") BigDecimal primerNumero,
                                               @RequestParam(name = "segundo") BigDecimal segundoNumero) {
 
-        BigDecimal result = multipicador.calculo(primerNumero, segundoNumero);
+        BigDecimal result = dividir.calculo(primerNumero, segundoNumero);
         tracerImpl.trace(result);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
